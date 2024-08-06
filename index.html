@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla Casos de Usos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #000;
+            color: #fff;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #333;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+        h1, h2 {
+            color: #BB86FC; /* Color morado claro */
+        }
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        h2 {
+            border-bottom: 2px solid #BB86FC; /* Línea inferior morada */
+            padding-bottom: 5px;
+            margin-top: 0;
+        }
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .form-field {
+            width: 48%;
+            margin-bottom: 20px;
+        }
+        .form-field.full-width {
+            width: 100%;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #fff;
+            font-weight: bold;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            background-color: #555;
+            color: #fff;
+        }
+        textarea {
+            height: 100px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #BB86FC; /* Color morado */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            display: block;
+            margin: 20px auto 0 auto;
+        }
+        button:hover {
+            background-color: #D1A1FF; /* Color morado más claro */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Plantilla Casos de Usos</h1>
+        <form id="useCaseForm">
+            <div class="form-group">
+                <div class="form-field">
+                    <h2>1. Identificador</h2>
+                    <label for="id">ID del Caso de Uso:</label>
+                    <input type="text" id="id" name="id" required>
+                </div>
+                <div class="form-field full-width">
+                    <h2>2. Descripción</h2>
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" name="descripcion" required></textarea>
+                </div>
+                <div class="form-field">
+                    <h2>3. Actores</h2>
+                    <label for="actoresPrincipales">Actores Principales:</label>
+                    <input type="text" id="actoresPrincipales" name="actoresPrincipales" required>
+                </div>
+                <div class="form-field">
+                    <label for="actoresSecundarios">Actores Secundarios:</label>
+                    <input type="text" id="actoresSecundarios" name="actoresSecundarios">
+                </div>
+                <div class="form-field full-width">
+                    <h2>4. Precondiciones</h2>
+                    <label for="precondiciones">Precondiciones:</label>
+                    <textarea id="precondiciones" name="precondiciones" required></textarea>
+                </div>
+                <div class="form-field full-width">
+                    <h2>5. Postcondiciones</h2>
+                    <label for="postcondiciones">Postcondiciones:</label>
+                    <textarea id="postcondiciones" name="postcondiciones" required></textarea>
+                </div>
+                <div class="form-field full-width">
+                    <h2>6. Flujo Básico</h2>
+                    <label for="flujoBasico">Flujo Básico:</label>
+                    <textarea id="flujoBasico" name="flujoBasico" required></textarea>
+                </div>
+                <div class="form-field full-width">
+                    <h2>7. Flujos Alternativos</h2>
+                    <label for="flujoAlternativo1">Flujo Alternativo 1:</label>
+                    <textarea id="flujoAlternativo1" name="flujoAlternativo1"></textarea>
+                </div>
+                <div class="form-field full-width">
+                    <label for="condicion1">Condición:</label>
+                    <textarea id="condicion1" name="condicion1"></textarea>
+                </div>
+                <div class="form-field full-width">
+                    <label for="flujoAlternativo2">Flujo Alternativo 2:</label>
+                    <textarea id="flujoAlternativo2" name="flujoAlternativo2"></textarea>
+                </div>
+                <div class="form-field full-width">
+                    <label for="condicion2">Condición:</label>
+                    <textarea id="condicion2" name="condicion2"></textarea>
+                </div>
+                <div class="form-field full-width">
+                    <h2>8. Requisitos Especiales</h2>
+                    <label for="requisitosEspeciales">Requisitos Especiales:</label>
+                    <textarea id="requisitosEspeciales" name="requisitosEspeciales"></textarea>
+                </div>
+                <div class="form-field full-width">
+                    <h2>9. Requisitos No Funcionales</h2>
+                    <label for="requisitosNoFuncionales">Requisitos No Funcionales:</label>
+                    <textarea id="requisitosNoFuncionales" name="requisitosNoFuncionales"></textarea>
+                </div>
+                <div class="form-field full-width">
+                    <h2>10. Suposiciones</h2>
+                    <label for="suposiciones">Suposiciones:</label>
+                    <textarea id="suposiciones" name="suposiciones"></textarea>
+                </div>
+                <div class="form-field full-width">
+                    <h2>11. Comentarios</h2>
+                    <label for="comentarios">Comentarios:</label>
+                    <textarea id="comentarios" name="comentarios"></textarea>
+                </div>
+            </div>
+            <button type="button" onclick="generatePDF()">Guardar Plantilla</button>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script>
+        function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            const form = document.getElementById('useCaseForm');
+            const formData = new FormData(form);
+
+            const title = "Plantilla Casos de Usos";
+            const sections = [
+                "1. Identificador",
+                "2. Descripción",
+                "3. Actores",
+                "4. Precondiciones",
+                "5. Postcondiciones",
+                "6. Flujo Básico",
+                "7. Flujos Alternativos",
+                "8. Requisitos Especiales",
+                "9. Requisitos No Funcionales",
+                "10. Suposiciones",
+                "11. Comentarios"
+            ];
+
+            const values = {
+                id: formData.get('id'),
+                descripcion: formData.get('descripcion'),
+                actoresPrincipales: formData.get('actoresPrincipales'),
+                actoresSecundarios: formData.get('actoresSecundarios'),
+                precondiciones: formData.get('precondiciones'),
+                postcondiciones: formData.get('postcondiciones'),
+                flujoBasico: formData.get('flujoBasico'),
+                flujoAlternativo1: formData.get('flujoAlternativo1'),
+                condicion1: formData.get('condicion1'),
+                flujoAlternativo2: formData.get('flujoAlternativo2'),
+                condicion2: formData.get('condicion2'),
+                requisitosEspeciales: formData.get('requisitosEspeciales'),
+                requisitosNoFuncionales: formData.get('requisitosNoFuncionales'),
+                suposiciones: formData.get('suposiciones'),
+                comentarios: formData.get('comentarios')
+            };
+
+            const marginLeft = 10;
+            const marginTop = 20;
+            const lineHeight = 10;
+
+            doc.setFontSize(14);
+            doc.setTextColor(0, 0, 0); // Color negro
+            doc.text(title, marginLeft, marginTop);
+
+            let line = marginTop + lineHeight * 2;
+
+            sections.forEach((section, index) => {
+                doc.setFontSize(12);
+                doc.text(section, marginLeft, line);
+                line += lineHeight;
+
+                doc.setFontSize(10);
+                doc.text(values[Object.keys(values)[index]] || '', marginLeft, line);
+                line += lineHeight * 2;
+            });
+
+            doc.save('plantilla_casos_de_usos.pdf');
+        }
+    </script>
+</body>
+</html>
